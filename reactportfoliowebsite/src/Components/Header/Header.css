@@ -1,0 +1,108 @@
+:root {
+    --header-bg-color: #fff;
+    --button-color: #333;
+    --button-hover-color: #0073e6;
+  }
+  
+  body.dark-mode {
+    --header-bg-color: #333;
+    --button-color: #fff;
+    --button-hover-color: #ffcc00;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--header-bg-color);
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+  
+  .header-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .header-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--button-color);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+  
+  .header-button span {
+    margin-left: 10px; /* Space between icon and text */
+  }
+  
+  .header-button:hover {
+    color: var(--button-hover-color);
+  }
+  
+  .menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--button-color);
+    position: absolute;
+    right: 20px;
+    top: 10px;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .menu-button {
+      display: block;
+    }
+  
+    .header-buttons {
+      flex-direction: column;
+      position: absolute;
+      top: 150%; /* Further adjusted to move the dropdown even lower */
+      right: 0;
+      background-color: var(--header-bg-color);
+      width: 200px;
+      padding: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+  
+    .header-buttons.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  
+    .header-button {
+      justify-content: flex-start;
+      padding: 10px 0;
+      width: 100%;
+    }
+  }
+  
+  /* Ensure buttons are displayed inline on desktop */
+  @media (min-width: 769px) {
+    .header-buttons {
+      flex-direction: row;
+      position: static;
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+      background-color: transparent;
+      box-shadow: none;
+    }
+  
+    .header-button {
+      padding: 0;
+      width: auto;
+    }
+  }

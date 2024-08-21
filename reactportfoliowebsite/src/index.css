@@ -1,0 +1,12 @@
+/* src/index.css */
+:root {
+  --header-bg-color: #fff;
+  --button-color: #333;
+  --button-hover-color: #0073e6;
+}
+
+body.dark-mode {
+  --header-bg-color: #333;
+  --button-color: #fff;
+  --button-hover-color: #ffcc00;
+}
